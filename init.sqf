@@ -95,4 +95,5 @@ if (isServer) then {
 	call compile preProcessFileLineNumbers "\life_server\map\grenzverlauf.sqf";
 	call compile preProcessFileLineNumbers "\life_server\map\highway_cp.sqf";
 	call compile preProcessFileLineNumbers "\life_server\map\emt_athira.sqf";
+	call compile preProcessFileLineNumbers "\life_server\map\athira_police_jail.sqf";
 };
