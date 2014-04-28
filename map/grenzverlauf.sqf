@@ -1,10 +1,3 @@
-activateAddons [
-];
-
-activateAddons [];
-initAmbientLife;
-[] call (uinamespace getvariable 'bis_fnc_recompile');
-'bis_functions_mainscope' call (uinamespace getvariable ['bis_fnc_endLoadingScreen',{}]);
 _initCodes = [];
 
 _vehicle_0 = objNull;
@@ -8335,11 +8328,6 @@ if (true) then
 	_this setPos [17209.2,13823.5,0];
 };
 
-_this = createCenter west;
-_center_0 = _this;
-
-_group_0 = createGroup _center_0;
-
 _vehicle_1041 = objNull;
 if (true) then
 {
@@ -9323,4 +9311,3 @@ if (true) then
 	[] call compile (_x select 1);
 } foreach _initCodes;
 runInitScript;
-finishMissionInit;
