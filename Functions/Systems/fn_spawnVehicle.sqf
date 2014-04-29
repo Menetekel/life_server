@@ -70,6 +70,11 @@ if((_vInfo select 1) == "cop" && (_vInfo select 2) == "C_Offroad_01_F") then
 	[_vehicle,"cop_offroad",true] call life_fnc_vehicleAnimate;
 };
 
+ if((_vInfo select 1) == "ind" && (_vInfo select 2) == "C_Offroad_01_F") then
+{
+	[_vehicle,"service_truck",true] call life_fnc_vehicleAnimate;
+};
+
 if((_vInfo select 1) == "cop" && (_vInfo select 2) in ["B_MRAP_01_F","C_SUV_01_F"]) then {
 	_vehicle setVariable["lights",false,true];
 };
