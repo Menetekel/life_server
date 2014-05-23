@@ -45,7 +45,10 @@ if(count _nearVehicles > 0) exitWith
 };
 
 _query = format["UPDATE vehicles SET active='1' WHERE pid='%1' AND id='%2'",_pid,_vid];
-_sql = "Arma2Net.Unmanaged" callExtension format ["Arma2NETMySQLCommand ['%2', '%1']", _query,(call LIFE_SCHEMA_NAME)];
+//_sql = "Arma2Net.Unmanaged" callExtension format ["Arma2NETMySQLCommand ['%2', '%1']", _query,(call LIFE_SCHEMA_NAME)];
+waitUntil {!DB_Async_Active};
+_thread = [_query,false] spawn DB_fnc_asyncCall;
+waitUntil {scriptDone _thread};
 _vehicle = _vInfo select 2 createVehicle (_sp);
 _vehicle setVariable["vehicle_info_owners",[[_pid,_name]],true];
 _vehicle setVariable["dbInfo",[(_vInfo select 4),(call compile format["%1", _vInfo select 7])]];
@@ -73,6 +76,10 @@ if((_vInfo select 1) == "cop" && (_vInfo select 2) == "C_Offroad_01_F") then
  if((_vInfo select 1) == "ind" && (_vInfo select 2) == "C_Offroad_01_F") then
 {
 	[_vehicle,"service_truck",true] call life_fnc_vehicleAnimate;
+};
+
+ if((_vInfo select 1) == "ind" && (_vInfo select 2) == "B_Truck_01_mover_F") then {
+	_vehicle setVariable["lights",false,true];
 };
 
 if((_vInfo select 1) == "cop" && (_vInfo select 2) in ["B_MRAP_01_F","C_SUV_01_F"]) then {
