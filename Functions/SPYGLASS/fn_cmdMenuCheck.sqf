@@ -11,7 +11,7 @@ private["_validMenus","_lastMenu"];
 _validMenus = [
 	"RscMainMenu","RscMoveHigh","#WATCH","#WATCH0","RscWatchDir","RscWatchMoveDir","#GETIN","#RscStatus","RscCallSupport","#ACTION",
 	"RscCombatMode","RscFormations","RscTeam","RscSelectTeam","RscReply","#User:BIS_Menu_GroupCommunication","#CUSTOM_RADIO",
-	"RscRadio","RscGroupRootMenu","RscMenuReply","RscMenuStatus","#USER:adminmenu","#USER:ToolsMenu","#USER:_pmenu",""
+	"RscRadio","RscGroupRootMenu","RscMenuReply","RscMenuStatus","#USER:adminmenu","#USER:ToolsMenu","#USER:_pmenu","","#User:BIS_fnc_addCommMenuItem_menu"
 ];
 
 _lastMenu = "";
