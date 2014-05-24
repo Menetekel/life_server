@@ -1,5 +1,5 @@
 /*
-	File: fn_mresArray.sqf
+	File: fn_mresToArray.sqf
 	Author: Bryan "Tonic" Boardwine";
 	
 	Description:
@@ -8,20 +8,19 @@
 	any problems. The return method is 'hacky' but it's effective.
 */
 private["_array"];
-_array = [_this,0,[],[[]]] call BIS_fnc_param;
-_array = str(str(_array));
+_array = [_this,0,"",[""]] call BIS_fnc_param;
+if(_array == "") exitWith {[]};
 _array = toArray(_array);
 
 for "_i" from 0 to (count _array)-1 do
 {
 	_sel = _array select _i;
-	if((_i != 0 && _i != ((count _array)-1))) then
+	if(_sel == 96) then
 	{
-		if(_sel == 34) then
-		{
-			_array set[_i,96];
-		};
+		_array set[_i,39];
 	};
 };
 
-toString(_array);
+_array = toString(_array);
+_array = call compile format["%1", _array];
+_array;
